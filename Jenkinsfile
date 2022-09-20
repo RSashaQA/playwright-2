@@ -1,10 +1,11 @@
 pipeline {
   agent any
   stages {
-    stage('install playwright') {
+    stage('prepare playwright') {
       steps {
         sh '''
           npm i -D @playwright/test
+          npm install fs-extra
           npx playwright install
         '''
       }
@@ -20,12 +21,6 @@ pipeline {
           npx playwright test --list
           npx playwright test
         '''
-      }
-      post {
-        success {
-          archiveArtifacts(artifacts: 'homepage-*.png', followSymlinks: false)
-          sh 'rm -rf *.png'
-        }
       }
     }
   }

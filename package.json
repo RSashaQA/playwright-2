@@ -17,5 +17,8 @@
   "homepage": "https://github.com/RSashaQA/playwright-2#readme",
   "devDependencies": {
     "@playwright/test": "^1.26.0"
+  },
+  "dependencies": {
+    "fs-extra": "^10.1.0"
   }
 }
